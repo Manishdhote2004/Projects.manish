@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone Login</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 360px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container input {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f0f2f5;
+        }
+        .login-container button {
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-container button:disabled {
+            background-color: #a1c4f3;
+        }
+        .login-container .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+        .login-container .divider span {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 0 10px;
+            font-size: 12px;
+            color: #555;
+        }
+        .login-container .signup-link {
+            margin-top: 20px;
+            color: #1877f2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <form id="loginForm">
+            <input type="text" id="email" placeholder="Email or phone number" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" id="loginButton" disabled>Log In</button>
+        </form>
+        <div class="divider">
+            <span>or</span>
+        </div>
+        <button onclick="loginWithGoogle()">Log in with Google</button>
+        <a href="#" class="signup-link">Create New Account</a>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
+
+        function toggleButtonState() {
+            loginButton.disabled = !emailInput.value || !passwordInput.value;
+        }
+
+        emailInput.addEventListener('input', toggleButtonState);
+        passwordInput.addEventListener('input', toggleButtonState);
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Logged in!');
+        });
+
+        function loginWithGoogle() {
+            alert('Login with Google clicked!');
+        }
+    </script>
+</body>
+</html>
